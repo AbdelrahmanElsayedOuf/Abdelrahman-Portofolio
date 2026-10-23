@@ -1,829 +1,634 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Abdelrahman - Software Engineer</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abdelrahman Ouf · Software Engineer</title>
+  <meta name="description" content="Abdelrahman Elsayed Ouf — Software Engineer with 3+ years building .NET, Angular and Dynamics 365 platforms for clients in Egypt, Saudi Arabia and the UAE." />
+  <meta name="theme-color" content="#EEEAFB" />
+  <meta property="og:title" content="Abdelrahman Ouf · Software Engineer" />
+  <meta property="og:description" content="3+ years building .NET, Angular and Dynamics 365 platforms across Egypt, Saudi Arabia and the UAE." />
+  <meta property="og:image" content="images/Me5.webp" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ DESIGN TOKENS (claymorphism) ============ */
+    :root {
+      --bg: #EEEAFB;
+      --bg-2: #E4DEF8;
+      --surface: #F7F5FF;
+      --ink: #2A2547;
+      --ink-soft: #645E86;
+      --violet: #7C5CFF;
+      --violet-2: #A48BFF;
+      --peach: #FFB38A;
+      --mint: #6FDDBB;
+      --sky: #84C2FF;
+      --rose: #FF8FB1;
+      --sun: #FFD36E;
+      --shadow-dark: rgba(98, 82, 180, .22);
+      --shadow-light: rgba(255, 255, 255, .95);
+      --inner-dark: rgba(98, 82, 180, .12);
+      --inner-light: rgba(255, 255, 255, .85);
+      --clay: 14px 14px 30px var(--shadow-dark), -10px -10px 24px var(--shadow-light),
+              inset -6px -6px 14px var(--inner-dark), inset 6px 6px 14px var(--inner-light);
+      --clay-sm: 8px 8px 16px var(--shadow-dark), -6px -6px 14px var(--shadow-light),
+                 inset -3px -3px 8px var(--inner-dark), inset 3px 3px 8px var(--inner-light);
+      --clay-press: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+      --radius-xl: 36px;
+      --radius-lg: 26px;
+      --radius-md: 18px;
+      --font-head: "Fredoka", "Nunito", system-ui, sans-serif;
+      --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #1F1B36; --bg-2: #262142; --surface: #2A2549; --ink: #F1EEFF; --ink-soft: #B4ADD8;
+        --shadow-dark: rgba(8, 5, 25, .6); --shadow-light: rgba(70, 62, 120, .35);
+        --inner-dark: rgba(0, 0, 0, .25); --inner-light: rgba(255, 255, 255, .07);
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #1F1B36; --bg-2: #262142; --surface: #2A2549; --ink: #F1EEFF; --ink-soft: #B4ADD8;
+      --shadow-dark: rgba(8, 5, 25, .6); --shadow-light: rgba(70, 62, 120, .35);
+      --inner-dark: rgba(0, 0, 0, .25); --inner-light: rgba(255, 255, 255, .07);
+      color-scheme: dark;
+    }
 
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
-      rel="stylesheet"
-    />
+    /* ============ BASE ============ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font-family: var(--font-body); font-size: 17px; line-height: 1.65;
+      overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.15; margin: 0; letter-spacing: -.01em; }
+    p { margin: 0; }
+    .wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+    section { padding: 72px 0; position: relative; overflow-x: clip; }
+    html, body { overflow-x: clip; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+      background: var(--surface); box-shadow: var(--clay-sm); font-weight: 800; font-size: 13px;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--violet);
+    }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 44px; display: grid; gap: 16px; justify-items: center; }
+    .section-head h2 { font-size: clamp(30px, 5vw, 46px); }
+    .section-head p { color: var(--ink-soft); }
+    .clay { background: var(--surface); border-radius: var(--radius-xl); box-shadow: var(--clay); }
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
-    <link rel="stylesheet" href="css/animate.css" />
+    /* floating blobs */
+    .blob { position: absolute; border-radius: 50%; filter: blur(2px); opacity: .55; z-index: 0; pointer-events: none;
+      box-shadow: inset -10px -10px 24px rgba(0,0,0,.08), inset 10px 10px 24px rgba(255,255,255,.6); }
+    .float { animation: float 7s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-14px) rotate(4deg); } }
 
-    <link rel="stylesheet" href="css/owl.carousel.min.css" />
-    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-    <link rel="stylesheet" href="css/magnific-popup.css" />
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 15px 26px; border-radius: 999px; border: 0; cursor: pointer;
+      font: 800 16px var(--font-body); transition: transform .2s, box-shadow .2s;
+    }
+    .btn svg { width: 20px; height: 20px; }
+    .btn-primary {
+      color: #fff; background: linear-gradient(145deg, var(--violet-2), var(--violet));
+      box-shadow: 10px 10px 22px rgba(124, 92, 255, .38), -6px -6px 16px var(--shadow-light),
+                  inset -4px -4px 10px rgba(60, 30, 180, .35), inset 4px 4px 10px rgba(255,255,255,.4);
+    }
+    .btn-ghost { color: var(--ink); background: var(--surface); box-shadow: var(--clay-sm); }
+    .btn:hover { transform: translateY(-3px); }
+    .btn:active { transform: translateY(1px); box-shadow: var(--clay-press); }
+    .btn:focus-visible, .nav a:focus-visible, .icon-btn:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
 
-    <link rel="stylesheet" href="css/aos.css" />
+    /* ============ NAV ============ */
+    header { position: sticky; top: 14px; z-index: 50; padding-top: 14px; margin-top: -14px; }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 10px 10px 10px 22px; border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 88%, transparent);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: var(--clay-sm);
+    }
+    .logo { font-family: var(--font-head); font-weight: 700; font-size: 22px; display: flex; align-items: center; gap: 10px; }
+    .logo-mark {
+      width: 38px; height: 38px; border-radius: 13px; display: grid; place-items: center; color: #fff; font-size: 17px;
+      background: linear-gradient(145deg, var(--peach), var(--rose));
+      box-shadow: inset -3px -3px 6px rgba(0,0,0,.12), inset 3px 3px 6px rgba(255,255,255,.5), 4px 4px 10px var(--shadow-dark);
+    }
+    .nav-links { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { display: block; padding: 10px 16px; border-radius: 999px; font-weight: 700; color: var(--ink-soft); transition: .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); background: var(--bg); box-shadow: var(--clay-press); }
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-btn {
+      width: 46px; height: 46px; border-radius: 50%; border: 0; cursor: pointer; display: grid; place-items: center;
+      background: var(--bg); color: var(--ink); box-shadow: var(--clay-sm);
+    }
+    .icon-btn svg { width: 22px; height: 22px; }
+    .menu-btn { display: none; }
+    .nav .btn { padding: 12px 20px; }
 
-    <link rel="stylesheet" href="css/ionicons.min.css" />
+    /* ============ HERO ============ */
+    .hero { padding-top: 56px; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(40px, 7vw, 72px); margin: 22px 0 18px; }
+    .hero h1 .grad { background: linear-gradient(120deg, var(--violet), var(--rose) 60%, var(--peach)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .lead { font-size: clamp(17px, 2.2vw, 20px); color: var(--ink-soft); max-width: 560px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .avail { display: inline-flex; align-items: center; gap: 10px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px color-mix(in srgb, var(--mint) 35%, transparent); animation: pulse 2s infinite; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--mint) 10%, transparent); } }
 
-    <link rel="stylesheet" href="css/flaticon.css" />
-    <link rel="stylesheet" href="css/icomoon.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
-  </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-    <nav
-      class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target"
-      id="ftco-navbar"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="index.html">Ebn Ouf</a>
-        <button
-          class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle"
-          type="button"
-          data-toggle="collapse"
-          data-target="#ftco-nav"
-          aria-controls="ftco-nav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="oi oi-menu"></span> Menu
+    .portrait-wrap { position: relative; justify-self: center; width: min(420px, 100%); aspect-ratio: 1 / 1.08; }
+    .portrait {
+      position: absolute; inset: 0; border-radius: 46% 54% 42% 58% / 52% 44% 56% 48%;
+      background: linear-gradient(160deg, var(--violet-2), var(--violet));
+      box-shadow: 20px 24px 50px rgba(124,92,255,.35), -12px -12px 30px var(--shadow-light),
+                  inset -14px -14px 30px rgba(50, 20, 160, .35), inset 14px 14px 30px rgba(255,255,255,.35);
+      overflow: hidden; animation: morph 12s ease-in-out infinite;
+    }
+    .portrait img { position: absolute; bottom: -4%; left: 50%; transform: translateX(-50%); width: 86%; height: auto; filter: drop-shadow(0 10px 18px rgba(40,20,120,.35)); }
+    @keyframes morph { 50% { border-radius: 56% 44% 58% 42% / 44% 56% 44% 56%; } }
+    .chip-float {
+      position: absolute; display: flex; align-items: center; gap: 10px; padding: 10px 16px 10px 10px;
+      border-radius: 20px; background: var(--surface); box-shadow: var(--clay-sm); font-weight: 800; font-size: 14px; white-space: nowrap;
+    }
+    .chip-float .ico { width: 36px; height: 36px; border-radius: 12px; display: grid; place-items: center; font-size: 18px;
+      box-shadow: inset -3px -3px 6px rgba(0,0,0,.12), inset 3px 3px 6px rgba(255,255,255,.55); }
+    .chip-float small { display: block; font-weight: 600; color: var(--ink-soft); font-size: 12px; line-height: 1.2; }
+    .cf-1 { top: 8%; left: -8%; } .cf-2 { bottom: 14%; right: -8%; animation-delay: -3s; } .cf-3 { bottom: -2%; left: 4%; animation-delay: -5s; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; position: relative; z-index: 1; }
+    .stat { padding: 24px; text-align: center; border-radius: var(--radius-lg); }
+    .stat b { display: block; font-family: var(--font-head); font-size: clamp(30px, 4vw, 42px); color: var(--violet); line-height: 1.1; }
+    .stat span { font-weight: 700; color: var(--ink-soft); font-size: 15px; }
+
+    /* ============ ABOUT ============ */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .about-card { padding: 36px; }
+    .about-card h3 { font-size: 26px; margin-bottom: 14px; }
+    .about-card p + p { margin-top: 14px; }
+    .about-card p { color: var(--ink-soft); }
+    .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .fact { padding: 14px 16px; border-radius: var(--radius-md); background: var(--bg); box-shadow: var(--clay-press); }
+    .fact small { display: block; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); }
+    .fact span { font-weight: 800; }
+
+    .timeline { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; }
+    .tl { display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+    .tl-ico { width: 56px; height: 56px; border-radius: 18px; display: grid; place-items: center; font-size: 24px;
+      box-shadow: inset -4px -4px 8px rgba(0,0,0,.12), inset 4px 4px 8px rgba(255,255,255,.55), 6px 6px 14px var(--shadow-dark); }
+    .tl h4 { font-size: 19px; }
+    .tl .meta { font-size: 14px; font-weight: 800; color: var(--violet); }
+    .tl p { font-size: 15px; color: var(--ink-soft); margin-top: 4px; }
+
+    /* ============ PROJECTS ============ */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .project { padding: 18px; display: flex; flex-direction: column; transition: transform .25s; }
+    .project:hover { transform: translateY(-6px); }
+    .thumb { position: relative; border-radius: 26px; aspect-ratio: 16 / 9; overflow: hidden; display: grid; place-items: center;
+      box-shadow: inset -8px -8px 20px rgba(0,0,0,.12), inset 8px 8px 20px rgba(255,255,255,.45); }
+    .thumb .big { font-size: clamp(54px, 9vw, 80px); filter: drop-shadow(8px 10px 10px rgba(0,0,0,.18)); position: relative; z-index: 1; }
+    .thumb .shape { position: absolute; border-radius: 50%; background: rgba(255,255,255,.35);
+      box-shadow: inset -6px -6px 14px rgba(0,0,0,.08), inset 6px 6px 14px rgba(255,255,255,.6); }
+    .thumb .s1 { width: 38%; aspect-ratio: 1; top: -12%; right: -6%; }
+    .thumb .s2 { width: 22%; aspect-ratio: 1; bottom: -6%; left: 8%; }
+    .thumb .s3 { width: 12%; aspect-ratio: 1; top: 18%; left: 20%; }
+    .flags { position: absolute; top: 14px; left: 14px; display: flex; gap: 8px; z-index: 2; flex-wrap: wrap; }
+    .flag { padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 800; background: rgba(255,255,255,.85); color: #2A2547;
+      box-shadow: 3px 3px 8px rgba(0,0,0,.12), inset -2px -2px 4px rgba(0,0,0,.06); }
+    .t-violet { background: linear-gradient(145deg, #B9A6FF, #8A6CFF); }
+    .t-peach { background: linear-gradient(145deg, #FFD2B5, #FF9F76); }
+    .t-mint { background: linear-gradient(145deg, #A8F0D8, #4FCFA6); }
+    .t-sky { background: linear-gradient(145deg, #BFE0FF, #6AAEFF); }
+    .project-body { padding: 22px 10px 8px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+    .project-body h3 { font-size: 26px; }
+    .project-body .kicker { font-weight: 800; font-size: 14px; color: var(--violet); }
+    .project-body p { color: var(--ink-soft); }
+    .project-body ul { margin: 0; padding-left: 20px; color: var(--ink-soft); font-size: 15px; }
+    .project-body li + li { margin-top: 4px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 8px; }
+    .tag { padding: 6px 12px; border-radius: 12px; font-size: 13px; font-weight: 800; background: var(--bg); box-shadow: var(--clay-press); }
+    .project-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; color: var(--violet); margin-top: 6px; }
+    .project-link svg { width: 18px; height: 18px; transition: transform .2s; }
+    .project-link:hover svg { transform: translateX(4px); }
+
+    /* ============ SKILLS ============ */
+    .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+    .skill-card { padding: 30px; }
+    .skill-card .head { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .skill-card .head .tl-ico { width: 50px; height: 50px; font-size: 22px; }
+    .skill-card h3 { font-size: 21px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill { padding: 8px 14px; border-radius: 14px; font-weight: 700; font-size: 15px; background: var(--bg); box-shadow: var(--clay-sm); transition: .2s; }
+    .pill:hover { box-shadow: var(--clay-press); color: var(--violet); }
+
+    .cert { display: flex; align-items: center; gap: 22px; padding: 26px 30px; margin-top: 30px; }
+    .cert .tl-ico { flex: none; width: 64px; height: 64px; font-size: 28px; }
+    .cert h3 { font-size: 20px; margin-bottom: 6px; }
+    .cert p { color: var(--ink-soft); font-size: 15px; }
+
+    /* ============ CONTACT ============ */
+    .contact { padding: clamp(28px, 5vw, 56px); display: grid; grid-template-columns: 1.1fr .9fr; gap: 36px; align-items: center; overflow: hidden; position: relative; }
+    .contact h2 { font-size: clamp(30px, 5vw, 48px); margin: 16px 0 14px; }
+    .contact p { color: var(--ink-soft); }
+    .contact-list { display: grid; gap: 14px; }
+    .c-item { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 20px; background: var(--bg); box-shadow: var(--clay-sm); font-weight: 800; transition: .2s; min-width: 0; }
+    .c-item:hover { box-shadow: var(--clay-press); }
+    .c-item .tl-ico { width: 44px; height: 44px; border-radius: 14px; font-size: 18px; flex: none; }
+    .c-item small { display: block; font-size: 12px; color: var(--ink-soft); font-weight: 700; }
+    .c-item .txt { min-width: 0; overflow-wrap: anywhere; }
+    @media (max-width: 720px) { .c-item { font-size: 14.5px; } }
+
+    footer { padding: 32px 0 44px; text-align: center; color: var(--ink-soft); font-weight: 700; font-size: 15px; }
+
+    /* ============ REVEAL ============ */
+    .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 980px) {
+      .hero-grid, .about-grid, .contact { grid-template-columns: 1fr; }
+      .hero-grid { text-align: center; }
+      .hero .lead { margin-inline: auto; }
+      .hero-ctas { justify-content: center; }
+      .portrait-wrap { width: min(360px, 82%); order: -1; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .menu-btn { display: grid; }
+      .nav .btn { display: none; }
+      .nav-links {
+        position: absolute; top: calc(100% + 12px); left: 0; right: 0; flex-direction: column; gap: 6px; padding: 14px;
+        border-radius: 28px; background: var(--surface); box-shadow: var(--clay);
+        opacity: 0; transform: translateY(-10px) scale(.98); pointer-events: none; transition: .25s;
+      }
+      .nav-links.open { opacity: 1; transform: none; pointer-events: auto; }
+      .nav-links a { padding: 14px 18px; font-size: 17px; }
+      header { position: sticky; }
+      .nav { position: relative; }
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      section { padding: 52px 0; }
+      .projects, .skills { grid-template-columns: 1fr; }
+      .facts { grid-template-columns: 1fr; }
+      .about-card { padding: 26px 22px; }
+      .project { padding: 14px; }
+      .project-body { padding: 18px 6px 6px; }
+      .cf-1 { left: -4%; top: 2%; } .cf-2 { right: -4%; } .cf-3 { display: none; }
+      .chip-float { font-size: 13px; padding: 8px 12px 8px 8px; }
+      .chip-float .ico { width: 30px; height: 30px; font-size: 15px; }
+      .cert { flex-direction: column; text-align: center; }
+      .hero-ctas .btn { flex: 1 1 100%; }
+      .stats { gap: 14px; margin-top: 44px; }
+      .stat { padding: 18px 10px; }
+    }
+    @media (max-width: 380px) {
+      .logo span.full { display: none; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a href="#home" class="logo"><span class="logo-mark">AO</span><span class="full">Ebn Ouf</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">
+          <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
         </button>
-
-        <div class="collapse navbar-collapse" id="ftco-nav">
-          <ul class="navbar-nav nav ml-auto">
-            <li class="nav-item">
-              <a href="#home-section" class="nav-link"><span>Home</span></a>
-            </li>
-            <li class="nav-item">
-              <a href="#about-section" class="nav-link"><span>About</span></a>
-            </li>
-            <li class="nav-item">
-              <a href="#resume-section" class="nav-link"><span>Resume</span></a>
-            </li>
-            <li class="nav-item">
-              <a href="#services-section" class="nav-link"
-                ><span>Services</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#skills-section" class="nav-link"><span>Skills</span></a>
-            </li>
-            <li class="nav-item">
-              <a href="#projects-section" class="nav-link"
-                ><span>Projects</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="#contact-section" class="nav-link"
-                ><span>Contact</span></a
-              >
-            </li>
-          </ul>
-        </div>
+        <a class="btn btn-primary" href="#contact">Hire me</a>
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
     </nav>
-    <section id="home-section" class="hero">
-      <div class="home-slider owl-carousel">
-        <div class="slider-item">
-          <div class="overlay"></div>
-          <div class="container">
-            <div
-              class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-              data-scrollax-parent="true"
-            >
-              <div
-                class="one-third js-fullheight order-md-last img"
-                style="background-image: url(images/Me6.webp); width: 600px"
-              >
-                <div class="overlay"></div>
-              </div>
-              <div
-                class="one-forth d-flex align-items-center ftco-animate"
-                data-scrollax=" properties: { translateY: '70%' }"
-              >
-                <div class="text">
-                  <span class="subheading">Hello!</span>
-                  <h1 class="mb-4 mt-3">
-                    I'm <span>Abdelrahman Elsayed Ouf</span>
-                  </h1>
-                  <h2 class="mb-4">A Full-Stack .NET Developer</h2>
-                  <p>
-                    <a href="#contact-section" class="btn btn-primary py-3 px-4"
-                      >Hire me</a
-                    >
-                    <a
-                      href="#projects-section"
-                      class="btn btn-white btn-outline-white py-3 px-4"
-                      >My Works</a
-                    >
-                  </p>
-                </div>
-              </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="blob float" style="width:180px;height:180px;background:var(--peach);top:40px;left:-60px"></div>
+      <div class="blob float" style="width:120px;height:120px;background:var(--mint);bottom:80px;right:4%;animation-delay:-2s"></div>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow avail"><span class="dot"></span> Open to new opportunities</span>
+            <h1>Hi, I'm <span class="grad">Abdelrahman</span><br/>Software Engineer.</h1>
+            <p class="lead">I design and ship full-stack platforms with <strong>ASP.NET Core</strong>, <strong>Angular</strong> and <strong>Dynamics 365</strong> — from marketplaces and payment flows to invoicing systems — for clients across Egypt, Saudi Arabia and the UAE.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="#projects">
+                View my work
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </a>
+              <a class="btn btn-ghost" href="Files/Abd-Elrahman%20Elsayed%20CV.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                Download CV
+              </a>
             </div>
+          </div>
+          <div class="portrait-wrap">
+            <div class="portrait"><img src="images/Me5.webp" alt="Portrait of Abdelrahman Elsayed Ouf" width="617" height="960" fetchpriority="high" /></div>
+            <div class="chip-float cf-1 float"><span class="ico" style="background:var(--sun)">⚡</span><span>.NET Core<small>Web APIs</small></span></div>
+            <div class="chip-float cf-2 float"><span class="ico" style="background:var(--rose)">🅰️</span><span>Angular<small>Frontends</small></span></div>
+            <div class="chip-float cf-3 float"><span class="ico" style="background:var(--sky)">🧩</span><span>Dynamics 365<small>CRM</small></span></div>
           </div>
         </div>
 
-        <div class="slider-item">
-          <div class="overlay"></div>
-          <div class="container">
-            <div
-              class="row d-flex no-gutters slider-text align-items-end justify-content-end"
-              data-scrollax-parent="true"
-            >
-              <div
-                class="one-third js-fullheight order-md-last img"
-                style="background-image: url(images/Me5.webp); width: 470px"
-              >
-                <div class="overlay"></div>
-              </div>
-              <div
-                class="one-forth d-flex align-items-center ftco-animate"
-                data-scrollax=" properties: { translateY: '70%' }"
-              >
-                <div class="text">
-                  <span class="subheading">Hello!</span>
-                  <h1 class="mb-4 mt-3">
-                    I'm a <span>Full-Stack .NET Developer</span> based in Egypt
-                  </h1>
-                  <p>
-                    <a href="#contact-section" class="btn btn-primary py-3 px-4"
-                      >Hire me</a
-                    >
-                    <a
-                      href="#projects-section"
-                      class="btn btn-white btn-outline-white py-3 px-4"
-                      >My Works</a
-                    >
-                  </p>
-                </div>
-              </div>
+        <div class="stats">
+          <div class="stat clay reveal"><b data-count="3">3+</b><span>Years experience</span></div>
+          <div class="stat clay reveal"><b data-count="3">3</b><span>Countries served</span></div>
+          <div class="stat clay reveal"><b data-count="5">5+</b><span>Production projects</span></div>
+          <div class="stat clay reveal"><b>1</b><span>Microsoft certification</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">About me</span>
+          <h2>Engineer by training, builder by choice</h2>
+          <p>I moved from petroleum engineering into software, and I bring the same analytical mindset to every system I build.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-card clay reveal">
+            <h3>Who I am 👋</h3>
+            <p>I'm a full-stack software engineer based in Cairo with 3+ years of production experience. I build efficient backends with ASP.NET Core and dynamic frontends with Angular, and I extend business systems with Microsoft Dynamics 365 CRM.</p>
+            <p>My work spans payment gateway integrations (PayFort, HyperPay), WhatsApp Business API, multi-provider marketplaces with escrow payments, and clean-architecture APIs that teams can maintain for years.</p>
+            <div class="facts">
+              <div class="fact"><small>Location</small><span>Cairo, Egypt 🇪🇬</span></div>
+              <div class="fact"><small>Current role</small><span>Full-Stack .NET Engineer</span></div>
+              <div class="fact"><small>Languages</small><span>Arabic · English</span></div>
+              <div class="fact"><small>Work style</small><span>Agile · Hybrid / Remote</span></div>
             </div>
+          </div>
+          <div class="about-card clay reveal">
+            <h3>Journey 🧭</h3>
+            <ol class="timeline">
+              <li class="tl">
+                <span class="tl-ico" style="background:var(--violet-2)">💼</span>
+                <div><span class="meta">Jul 2023 — Present</span><h4>Full-Stack .NET Engineer · Excellent Protection</h4>
+                <p>.NET Web APIs, Angular & MVC apps, Dynamics 365 customizations, PayFort payments and WhatsApp Business API integration.</p></div>
+              </li>
+              <li class="tl">
+                <span class="tl-ico" style="background:var(--sun)">🏅</span>
+                <div><span class="meta">Jun 2024</span><h4>Microsoft Certified</h4>
+                <p>Power Platform Functional Consultant Associate.</p></div>
+              </li>
+              <li class="tl">
+                <span class="tl-ico" style="background:var(--mint)">🎓</span>
+                <div><span class="meta">Oct 2022 — Jun 2023</span><h4>Information Technology Institute (ITI)</h4>
+                <p>9-month Professional Web Development & BI diploma.</p></div>
+              </li>
+              <li class="tl">
+                <span class="tl-ico" style="background:var(--peach)">🛢️</span>
+                <div><span class="meta">2018 — 2022</span><h4>B.Sc. Petroleum Engineering · Suez University</h4>
+                <p>Very Good with Honors — strong foundation in modelling and problem solving.</p></div>
+              </li>
+            </ol>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-6 col-lg-5 d-flex">
-            <div class="img-about img d-flex align-items-stretch">
-              <div class="overlay"></div>
-              <div
-                class="img d-flex align-self-stretch align-items-center"
-                style="background-image: url(images/Me6.webp)"
-              ></div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 pb-5">
-            <div class="row justify-content-start pb-3">
-              <div class="col-md-12 heading-section ftco-animate">
-                <h1 class="big">About</h1>
-                <h2 class="mb-4">About Me</h2>
-                <p>
-                  Passionate about building efficient backends with ASP.NET Core
-                  and dynamic frontends with Angular to deliver clean and
-                  maintainable code.
-                </p>
-                <ul class="about-info mt-4 px-md-0 px-2">
-                  <li class="d-flex">
-                    <span>Name:</span> <span>Abdelrahman Elsayed Ouf</span>
-                  </li>
-                  <li class="d-flex">
-                    <span>Date of birth:</span> <span>Febraury 15, 2000</span>
-                  </li>
-                  <li class="d-flex">
-                    <span>Email:</span>
-                    <span>abd-elrahman_elsayed@outlook.com</span>
-                  </li>
-                  <li class="d-flex">
-                    <span>Phone: </span> <span>+20 100-689-2802</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="counter-wrap ftco-animate d-flex mt-md-3">
-              <div class="text">
-                <p class="mb-4">
-                  <span class="number" data-number="17">0</span>
-                  <span>Project complete</span>
-                </p>
-                <p>
-                  <a
-                    href="https://1drv.ms/b/s!An9wVvnUcrx5jxY7rKLsNZpuaaXA?e=rLlTM1"
-                    target="_blank"
-                    class="btn btn-primary py-3 px-3"
-                    >VIEW CV</a
-                  >
-                </p>
-              </div>
-            </div>
-          </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="blob float" style="width:160px;height:160px;background:var(--sky);top:120px;right:-50px"></div>
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Featured work</span>
+          <h2>Platforms I've built</h2>
+          <p>Real products for real clients — from Riyadh to Dubai to Cairo.</p>
         </div>
-      </div>
-    </section>
-
-    <section class="ftco-section ftco-no-pb" id="resume-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-10 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Resume</h1>
-            <h2 class="mb-4">Resume</h2>
-            <p>
-              Accomplished web developer with a strong attention to detail,
-              eager to contribute to a dynamic team and create engaging,
-              user-centered web experiences. Looking to grow my skills and make
-              a meaningful impact in delivering innovative web solutions.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="resume-wrap ftco-animate">
-              <span class="date">2022-2023</span>
-              <h2>
-                Professional Web Development and BI 9-Month Program (ITI).
-              </h2>
-              <span class="position">Information Technology Institute</span>
-              <p class="mt-4">
-                The program provided hands-on experience in building web
-                applications, designing data pipelines, and implementing BI
-                solutions. Key skills include front-end and back-end
-                development, database management, data visualization, and
-                analytical reporting.
-              </p>
+        <div class="projects">
+          <article class="project clay reveal">
+            <div class="thumb t-violet">
+              <div class="flags"><span class="flag">🇸🇦 Saudi Arabia</span></div>
+              <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span>
+              <span class="big">🏠</span>
             </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="resume-wrap ftco-animate">
-              <span class="date">2018-2022</span>
-              <h2>Bachelor's Degree in Petroleum Engineering.</h2>
-              <span class="position"
-                >Faculty of Petroleum and Minig Engineering</span
-              >
-              <p class="mt-4">
-                I developed strong analytical thinking, problem-solving, and
-                data analysis skills. The program emphasized mathematical
-                modeling, process optimization, and the use of technology to
-                solve complex problems, which provided a solid foundation for my
-                transition into development.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="row justify-content-center mt-5">
-          <div class="col-md-6 text-center ftco-animate">
-            <p>
-              <a
-                href="https://1drv.ms/b/s!An9wVvnUcrx5jxY7rKLsNZpuaaXA?e=rLlTM1"
-                target="_blank"
-                class="btn btn-primary py-4 px-5"
-                >VIEW CV</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section" id="services-section">
-      <div class="container">
-        <div class="row justify-content-center py-5 mt-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Services</h1>
-            <h2 class="mb-4">Services</h2>
-            <p>
-              More than two years of real experience have been qualified me to
-              provide efficient work in the following services
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#projects-section" class="services-1">
-              <span class="icon">
-                <i class="flaticon-ux-design"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5">Back End Web Development</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#projects-section" class="services-1">
-              <span class="icon">
-                <i class="flaticon-web-design"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5">Front End Web Development</h3>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4 text-center d-flex ftco-animate">
-            <a href="#projects-section" class="services-1">
-              <span class="icon">
-                <i class="flaticon-analysis"></i>
-              </span>
-              <div class="desc">
-                <h3 class="mb-5">Dynamics 365 CRM Developer</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section" id="skills-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Skills</h1>
-            <h2 class="mb-4">My Skills</h2>
-            <p>
-              A versatile skill set combining technical expertise and
-              problem-solving, honed through academic and professional
-              experiences in web development and business intelligence.
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>.NET Technologies</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-1"
-                  role="progressbar"
-                  aria-valuenow="95"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 95%"
-                >
-                  <span>95%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Javascript</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-2"
-                  role="progressbar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 90%"
-                >
-                  <span>90%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>SQL Server</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-3"
-                  role="progressbar"
-                  aria-valuenow="95"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 95%"
-                >
-                  <span>95%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Angular</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-4"
-                  role="progressbar"
-                  aria-valuenow="90"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 90%"
-                >
-                  <span>90%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Node Js</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-5"
-                  role="progressbar"
-                  aria-valuenow="80"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 80%"
-                >
-                  <span>80%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 animate-box">
-            <div class="progress-wrap ftco-animate">
-              <h3>Dynamics 365 CRM</h3>
-              <div class="progress">
-                <div
-                  class="progress-bar color-6"
-                  role="progressbar"
-                  aria-valuenow="85"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                  style="width: 85%"
-                >
-                  <span>85%</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section ftco-project" id="projects-section">
-      <div class="container">
-        <div class="row justify-content-center pb-5">
-          <div class="col-md-12 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Projects</h1>
-            <h2 class="mb-4">Our Popular Projects</h2>
-            <p>
-              Sample of my projects from intensive data to simple real-world applications
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <a
-              href="https://www.tphgroup.me/home"
-              target="_blank"
-              style="text-decoration: none"
-            >
-              <div
-                class="project img ftco-animate d-flex justify-content-center align-items-center"
-                style="
-                  background-image: url(images/Cover-Tourism.webp);
-                  cursor: pointer;
-                "
-              >
-                <div class="overlay"></div>
-                <div class="text text-center p-4">
-                  <h3 style="color: black;">TPH Emirates Recruitment system</h3>
-                  <span style="color: black;"
-                    >.NET Web API, Angular, SQL Server & Dynamics 365 CRM</span
-                  >
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-8">
-            <a
-              href="https://github.com/AbdelrahmanElsayedOuf/MindMission-eLearning-WebAPI"
-              style="text-decoration: none"
-              target="_blank"
-            >
-              <div
-                class="project img ftco-animate d-flex justify-content-center align-items-center"
-                style="background-image: url(images/MindMission.webp)"
-              >
-                <div class="overlay"></div>
-                <div class="text text-center p-4">
-                  <h3 style="color: black;">Mind Mission E-Learning</h3>
-                  <span style="color: black;">.NET Web API, Angular, SQL Server & Power BI</span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-8">
-            <a
-              href="https://github.com/AbdelrahmanElsayedOuf/Attendance-System-JS"
-              style="text-decoration: none"
-              target="_blank"
-            >
-              <div
-                class="project img ftco-animate d-flex justify-content-center align-items-center"
-                style="background-image: url(images/Attendance\ System.webp)"
-              >
-                <div class="overlay"></div>
-                <div class="text text-center p-4">
-                  <h3 style="color: black;">Attendance System</h3>
-                  <span style="color: black;">Javascript & Json Server</span>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-12">
-                <a
-                  href="https://github.com/AbdelrahmanElsayedOuf/Watchy-eCinema-MVC"
-                  style="text-decoration: none"
-                  target="_blank"
-                >
-                  <div
-                    class="project img ftco-animate d-flex justify-content-center align-items-center"
-                    style="background-image: url(images/cinema.jpg)"
-                  >
-                    <div class="overlay"></div>
-                    <div class="text text-center p-4">
-                      <h3 style="color: black;">Watchy E-Cinema</h3>
-                      <span style="color: black;">.NET MVC Core & SQL Server</span>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="ftco-section ftco-hireme img margin-top"
-      style="background-image: url(images/bg_1.jpg); z-index: 100"
-    >
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-7 ftco-animate text-center">
-            <h2>I'm <span>Available</span> for freelancing</h2>
-            <p>
-              Worked on more than five Mid-To-Large scale projects that gave me
-              considerable experience in development and direct client
-              communtion
-            </p>
-            <p class="mb-0">
-              <a
-                href="#contact-section"
-                class="btn btn-primary py-3 px-5"
-                style="z-index: 5"
-                >Hire me</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="ftco-section contact-section ftco-no-pb"
-      id="contact-section"
-    >
-      <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 heading-section text-center ftco-animate">
-            <h1 class="big big-2">Contact</h1>
-            <h2 class="mb-4">Contact Me</h2>
-            <p>
-              Far far away, behind the word mountains, far from the countries
-              Vokalia and Consonantia
-            </p>
-          </div>
-        </div>
-
-        <div class="row d-flex contact-info mb-5">
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div
-                class="icon d-flex align-items-center justify-content-center"
-              >
-                <span class="icon-map-signs"></span>
-              </div>
-              <h3 class="mb-4">Address</h3>
-              <p>Cairo, Egypt</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div
-                class="icon d-flex align-items-center justify-content-center"
-              >
-                <span class="icon-phone2"></span>
-              </div>
-              <h3 class="mb-4">Contact Number</h3>
-              <p><a href="https://wa.me/+201006892802">+20 100 6892 802</a></p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div
-                class="icon d-flex align-items-center justify-content-center"
-              >
-                <span class="icon-paper-plane"></span>
-              </div>
-              <h3 class="mb-4">Email Address</h3>
-              <p>
-                <a href="mailto:abd-elrahman_elsayed@outlook.com"
-                  >abd-elrahman_elsayed<br />@outlook.com</a
-                >
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 d-flex ftco-animate">
-            <div class="align-self-stretch box p-4 text-center">
-              <div
-                class="icon d-flex align-items-center justify-content-center"
-              >
-                <span class="icon-globe"></span>
-              </div>
-              <h3 class="mb-4">Website</h3>
-              <p>
-                <a
-                  href="https://abdelrahmanelsayedouf.github.io/Abdelrahman-Portofolio/"
-                  >/Abdelrahman-Portofolio</a
-                >
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="ftco-footer ftco-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">About</h2>
-              <p>
-                Results-driven full-stack developer with 2 years of experience
-                developing and optimizing dynamic web applications.
-              </p>
-              <ul
-                class="ftco-footer-social list-unstyled float-md-left float-lft mt-5"
-              >
-                <li class="ftco-animate">
-                  <a
-                    target="_blank"
-                    href="https://www.linkedin.com/in/abdelrahman-elsayed-muhammed/"
-                    ><span class="icon-linkedin"></span
-                  ></a>
-                </li>
-                <li class="ftco-animate">
-                  <a
-                    target="_blank"
-                    href="https://github.com/AbdelrahmanElsayedOuf"
-                    ><span class="icon-github"></span
-                  ></a>
-                </li>
-                <li class="ftco-animate">
-                  <a
-                    target="_blank"
-                    href="https://www.facebook.com/abdelrahmanebnouf.hymaida"
-                    ><span class="icon-facebook"></span
-                  ></a>
-                </li>
+            <div class="project-body">
+              <span class="kicker">Home-services marketplace</span>
+              <h3>Belkhedma</h3>
+              <p>A unified marketplace that aggregates home-service providers — hourly labor, monthly contracts, medical staff and mediation — into one app.</p>
+              <ul>
+                <li>Provider adapters (API &amp; push modes) normalized into one package model</li>
+                <li>Escrow payments via HyperPay &amp; Apple Pay, released on delivery</li>
+                <li>Redis-cached search &amp; ranking with sub-10ms hot paths</li>
               </ul>
+              <div class="tags"><span class="tag">ASP.NET Zero</span><span class="tag">Angular</span><span class="tag">Flutter</span><span class="tag">Dynamics 365</span><span class="tag">Redis</span><span class="tag">Hangfire</span></div>
+              <a class="project-link" href="https://github.com/AbdelrahmanElsayedOuf/Belkhimah" target="_blank" rel="noopener">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4 ml-md-4">
-              <h2 class="ftco-heading-2">Links</h2>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#home-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Home</a
-                  >
-                </li>
-                <li>
-                  <a href="#about-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>About</a
-                  >
-                </li>
-                <li>
-                  <a href="#services-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Services</a
-                  >
-                </li>
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Projects</a
-                  >
-                </li>
-                <li>
-                  <a href="#contact-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Contact</a
-                  >
-                </li>
+          </article>
+
+          <article class="project clay reveal">
+            <div class="thumb t-peach">
+              <div class="flags"><span class="flag">🇪🇬 Egypt</span><span class="flag">🇸🇦 Saudi Arabia</span></div>
+              <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span>
+              <span class="big">🧾</span>
+            </div>
+            <div class="project-body">
+              <span class="kicker">Invoicing &amp; billing system</span>
+              <h3>E-Invoicing</h3>
+              <p>Backend Web API that automates invoice generation, customer billing and payment tracking for a travel &amp; tourism business.</p>
+              <ul>
+                <li>Clean architecture: API, Application, Infrastructure &amp; Models layers</li>
+                <li>Trips, reservations, clients and receipt vouchers</li>
+                <li>JWT auth with ASP.NET Identity, Repository &amp; Unit of Work patterns</li>
               </ul>
+              <div class="tags"><span class="tag">ASP.NET Core API</span><span class="tag">EF Core</span><span class="tag">SQL Server</span><span class="tag">JWT</span><span class="tag">AutoMapper</span></div>
+              <a class="project-link" href="https://github.com/AbdelrahmanElsayedOuf/E-Invoicing" target="_blank" rel="noopener">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
-          </div>
-          <div class="col-md">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Services</h2>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Back End</a
-                  >
-                </li>
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Front
-                    End</a
-                  >
-                </li>
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Dynamics
-                    365 CRM</a
-                  >
-                </li>
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Database</a
-                  >
-                </li>
-                <li>
-                  <a href="#projects-section"
-                    ><span class="icon-long-arrow-right mr-2"></span>Business
-                    Intelligence</a
-                  >
-                </li>
+          </article>
+
+          <article class="project clay reveal">
+            <div class="thumb t-mint">
+              <div class="flags"><span class="flag">🇪🇬 Egypt</span><span class="flag">🇸🇦 Saudi Arabia</span></div>
+              <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span>
+              <span class="big">🎓</span>
+            </div>
+            <div class="project-body">
+              <span class="kicker">E-learning platform</span>
+              <h3>Mind Mission</h3>
+              <p>A full-stack, Udemy-style platform where students browse, purchase and take courses, with complete course-management tools for instructors.</p>
+              <ul>
+                <li>RESTful Web API powering an Angular SPA</li>
+                <li>Course catalog, enrollment, checkout and progress tracking</li>
+                <li>Power BI dashboards for sales and learner analytics</li>
               </ul>
+              <div class="tags"><span class="tag">ASP.NET Web API</span><span class="tag">Angular</span><span class="tag">SQL Server</span><span class="tag">EF Core</span><span class="tag">Power BI</span></div>
+              <a class="project-link" href="https://github.com/AbdelrahmanElsayedOuf/MindMission-eLearning-WebAPI" target="_blank" rel="noopener">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
             </div>
+          </article>
+
+          <article class="project clay reveal">
+            <div class="thumb t-sky">
+              <div class="flags"><span class="flag">🇦🇪 UAE</span></div>
+              <span class="shape s1"></span><span class="shape s2"></span><span class="shape s3"></span>
+              <span class="big">🧑‍💼</span>
+            </div>
+            <div class="project-body">
+              <span class="kicker">Recruitment platform</span>
+              <h3>TPH Emirates</h3>
+              <p>A production recruitment system for a UAE manpower group, connecting a public web portal to Dynamics 365 CRM for end-to-end candidate management.</p>
+              <ul>
+                <li>.NET Web API bridging the portal and Dynamics 365</li>
+                <li>Candidate applications, profiles and hiring workflows</li>
+                <li>Custom CRM entities and business-process automation</li>
+              </ul>
+              <div class="tags"><span class="tag">.NET Web API</span><span class="tag">Angular</span><span class="tag">SQL Server</span><span class="tag">Dynamics 365</span></div>
+              <a class="project-link" href="https://www.tphgroup.me/home" target="_blank" rel="noopener">Visit live site <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow">Toolbox</span>
+          <h2>What I work with</h2>
+        </div>
+        <div class="skills">
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--violet-2)">⚙️</span><h3>Backend</h3></div>
+            <div class="pills"><span class="pill">C#</span><span class="pill">.NET / ASP.NET Core</span><span class="pill">Web API</span><span class="pill">MVC</span><span class="pill">ASP.NET Zero</span><span class="pill">Blazor</span><span class="pill">SignalR</span><span class="pill">Node.js</span></div>
           </div>
-          <div class="col-md" style="flex-grow: 1.8">
-            <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Have a Questions?</h2>
-              <div class="block-23 mb-3">
-                <ul>
-                  <li>
-                    <a href="https://wa.me/+201006892802"
-                      ><span class="icon icon-phone"></span
-                      ><span class="text">+20 100 6892 802 (WhatsApp)</span></a
-                    >
-                  </li>
-                  <li>
-                    <a href="mailto:abd-elrahman_elsayed@outlook.com"
-                      ><span class="icon icon-envelope"></span
-                      ><span class="text"
-                        >abd-elrahman_elsayed@outlook.com</span
-                      ></a
-                    >
-                  </li>
-                  <li>
-                    <span class="icon icon-map-marker"></span
-                    ><span class="text">Cairo, Egypt</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--rose)">🎨</span><h3>Frontend</h3></div>
+            <div class="pills"><span class="pill">Angular</span><span class="pill">TypeScript</span><span class="pill">JavaScript</span><span class="pill">HTML</span><span class="pill">CSS / SCSS</span><span class="pill">Bootstrap</span><span class="pill">Responsive design</span></div>
+          </div>
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--mint)">🗄️</span><h3>Data &amp; BI</h3></div>
+            <div class="pills"><span class="pill">SQL Server</span><span class="pill">Entity Framework</span><span class="pill">MongoDB</span><span class="pill">Redis</span><span class="pill">Power BI</span><span class="pill">SSRS</span></div>
+          </div>
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--sky)">🧩</span><h3>CRM &amp; Platforms</h3></div>
+            <div class="pills"><span class="pill">Dynamics 365</span><span class="pill">Power Platform</span><span class="pill">Azure DevOps</span></div>
+          </div>
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--sun)">🔌</span><h3>Integrations</h3></div>
+            <div class="pills"><span class="pill">PayFort</span><span class="pill">HyperPay</span><span class="pill">Apple Pay</span><span class="pill">WhatsApp Business API</span><span class="pill">JWT / Identity</span></div>
+          </div>
+          <div class="skill-card clay reveal">
+            <div class="head"><span class="tl-ico" style="background:var(--peach)">🛠️</span><h3>Practices</h3></div>
+            <div class="pills"><span class="pill">Clean Architecture</span><span class="pill">Agile / Scrum</span><span class="pill">CI/CD</span><span class="pill">Git &amp; GitHub</span></div>
+          </div>
+        </div>
+        <div class="cert clay reveal">
+          <span class="tl-ico" style="background:var(--sky)">🏆</span>
+          <div>
+            <h3>Microsoft Certified: Power Platform Functional Consultant Associate</h3>
+            <p>Earned June 2024 — designing Power Platform solutions that simplify, automate and empower business processes.</p>
           </div>
         </div>
       </div>
-    </footer>
+    </section>
 
-    <!-- loader -->
-    <div id="ftco-loader" class="show fullscreen">
-      <svg class="circular" width="48px" height="48px">
-        <circle
-          class="path-bg"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke="#eeeeee"
-        />
-        <circle
-          class="path"
-          cx="24"
-          cy="24"
-          r="22"
-          fill="none"
-          stroke-width="4"
-          stroke-miterlimit="10"
-          stroke="#F96D00"
-        />
-      </svg>
-    </div>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact clay reveal">
+          <div class="blob" style="width:220px;height:220px;background:var(--violet-2);top:-80px;right:-80px;opacity:.35"></div>
+          <div style="position:relative">
+            <span class="eyebrow">Let's talk</span>
+            <h2>Have a project in mind?</h2>
+            <p>I'm available for full-time roles and freelance work. Tell me what you're building and I'll get back to you within a day.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-primary" href="mailto:abd-elrahman_elsayed@outlook.com">Send an email</a>
+              <a class="btn btn-ghost" href="https://wa.me/201006892802" target="_blank" rel="noopener">WhatsApp me</a>
+            </div>
+          </div>
+          <div class="contact-list" style="position:relative">
+            <a class="c-item" href="mailto:abd-elrahman_elsayed@outlook.com"><span class="tl-ico" style="background:var(--peach)">✉️</span><span class="txt"><small>Email</small>abd-elrahman_elsayed@outlook.com</span></a>
+            <a class="c-item" href="https://www.linkedin.com/in/abdelrahman-ouf" target="_blank" rel="noopener"><span class="tl-ico" style="background:var(--sky)">💼</span><span class="txt"><small>LinkedIn</small>in/abdelrahman-ouf</span></a>
+            <a class="c-item" href="https://github.com/AbdelrahmanElsayedOuf" target="_blank" rel="noopener"><span class="tl-ico" style="background:var(--violet-2)">🐙</span><span class="txt"><small>GitHub</small>AbdelrahmanElsayedOuf</span></a>
+            <a class="c-item" href="https://wa.me/201006892802" target="_blank" rel="noopener"><span class="tl-ico" style="background:var(--mint)">💬</span><span class="txt"><small>WhatsApp</small>+20 100 689 2802</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-migrate-3.0.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/jquery.waypoints.min.js"></script>
-    <script src="js/jquery.stellar.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/jquery.animateNumber.min.js"></script>
-    <script src="js/scrollax.min.js"></script>
+  <footer class="wrap">© <span id="year">2026</span> Abdelrahman Elsayed Ouf · Built with care in Cairo</footer>
 
-    <script src="js/main.js"></script>
-  </body>
+  <script>
+    // Theme toggle
+    (function () {
+      var root = document.documentElement, btn = document.getElementById('themeBtn');
+      var saved = null; try { saved = localStorage.getItem('theme'); } catch (e) {}
+      if (saved) root.setAttribute('data-theme', saved);
+      function isDark() {
+        var t = root.getAttribute('data-theme');
+        return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      }
+      var sun = '<circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+      var moon = '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+      function paint() { document.getElementById('themeIco').innerHTML = isDark() ? sun : moon; }
+      paint();
+      btn.addEventListener('click', function () {
+        var next = isDark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        paint();
+      });
+    })();
+
+    // Mobile menu
+    (function () {
+      var btn = document.getElementById('menuBtn'), links = document.getElementById('navLinks');
+      function close() { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('click', function (e) { if (!links.contains(e.target)) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+
+    // Reveal on scroll + active nav link
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('in'); }); return; }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: .12 });
+      els.forEach(function (el) { io.observe(el); });
+
+      var navA = document.querySelectorAll('.nav-links a');
+      var so = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (en.isIntersecting) navA.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + en.target.id); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach(function (s) { so.observe(s); });
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
